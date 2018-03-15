@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 #Filename: number_sequence.py
+''' Used python 3.5
+    Indentation = 2 spaces '''
 
 import sys
 

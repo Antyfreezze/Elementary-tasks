@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 #Filename: converts.py
-
+''' Used python 3.5
+    Indentation = 2 spaces '''
 def main():
   play = True
   while play:

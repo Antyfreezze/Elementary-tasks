@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 #Filename: chess_desk.py
 ''' Programm for printing chess field by height and width which controlled by user.
-    Used python 3.5'''
+    Used python 3.5
+    Indentation = 2 spaces'''
 import sys
 
 def main():
