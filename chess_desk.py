@@ -2,7 +2,7 @@
 #Filename: chess_desk.py
 ''' Programm for printing chess field by height and width which controlled by user.
     Used python 3.5'''
-
+import sys
 def main():
   mistake = True
   while mistake == True:
