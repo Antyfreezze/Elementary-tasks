@@ -22,19 +22,24 @@ def main():
       play = False
       
 def computer(f_height, f_width, s_height, s_width):
-  if f_height * f_width > s_height * s_width:
-    diag = sqrt(pow(f_height, 2) + pow(f_width, 2))
-    if min(s_width, s_height) <= diag - max(s_width, s_height):
-      print('True')
-    else:
-      print('False')
+  if f_height <= s_height and f_width <= s_width:
+    print('True')
+  elif f_height >= s_height and f_width >= s_width:
+    print('True')
   else:
-    diag = sqrt(pow(s_height, 2) + pow(s_width, 2))
-    if min(f_width, f_height) <= diag - max(f_width, f_height):
-      print('True')
+    if f_height * f_width > s_height * s_width:
+      diag = sqrt(pow(f_height, 2) + pow(f_width, 2))
+      if min(s_width, s_height) <= diag - max(s_width, s_height):
+        print('True')
+      else:
+        print('False')
     else:
-      print('False')
-    
+      diag = sqrt(pow(s_height, 2) + pow(s_width, 2))
+      if min(f_width, f_height) <= diag - max(f_width, f_height):
+        print('True')
+      else:
+        print('False')
+
 if __name__ == "__main__":
   main()
     
