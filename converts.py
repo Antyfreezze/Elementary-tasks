@@ -21,25 +21,16 @@ def main():
       print('Thank you!')
       play = False
       
-def computer(f_height, f_width, s_height, s_width):
-  if f_height <= s_height and f_width <= s_width:
-    print('True')
-  elif f_height >= s_height and f_width >= s_width:
-    print('True')
+def computer(a, b, c, d):
+  if ( (a * b  >= c * d) and ( (a**2 + b**2) >= (c**2 + d**2) ) and
+                    (a + b >= c + d) and ( min(a, b) >= min(c, d) ) ):
+    print('Second in first')
+  elif ( (a * b  <= c * d) and ( (a**2 + b**2) <= (c**2 + d**2) ) and
+                    (a + b <= c + d) and ( min(a, b) <= min(c, d) ) ):
+    print('First in second')
   else:
-    if f_height * f_width > s_height * s_width:
-      diag = sqrt(pow(f_height, 2) + pow(f_width, 2))
-      if min(s_width, s_height) <= diag - max(s_width, s_height):
-        print('True')
-      else:
-        print('False')
-    else:
-      diag = sqrt(pow(s_height, 2) + pow(s_width, 2))
-      if min(f_width, f_height) <= diag - max(f_width, f_height):
-        print('True')
-      else:
-        print('False')
-
+    print('Cannot be placed')
+    
 if __name__ == "__main__":
   main()
     

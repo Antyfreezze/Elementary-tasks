@@ -21,6 +21,7 @@ def main():
 
 def parse(f_path, mode, sub, repl=''):  
   counter = 0
+  
   #if we need only count substring
   if mode == 'r':
     with open(f_path, mode) as fp:
@@ -28,6 +29,7 @@ def parse(f_path, mode, sub, repl=''):
         counter += line.count(sub)
       if counter:    
         print('Counter = {}'.format(counter))
+        
   #if we need make some replacement
   if mode == 'w' and repl != '':
     with open(f_path, 'r') as fp:
