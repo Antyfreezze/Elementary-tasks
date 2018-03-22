@@ -10,8 +10,17 @@ def main():
       some_num = int(input('Введите число для преобразования: '))
     except:
       print('Используйте целое число, пожалуйста.')
-    error = False
     
+    if some_num < 0:
+      print('Используйте положительные числа, пожалуйста')
+      continue
+    elif some_num > 999999999999:
+      print('Программа пока не умеет обрабатывать числа в которых больше 12ти знаков')
+      continue
+    else:
+      error = False
+  
+  
   fear = Converter( str(some_num) )
   fear.convert()
 
