@@ -4,18 +4,6 @@
 
 from math import sqrt as sqrt
 
-
-def main():
-    play = True
-    while play:
-        valid_input = validator()
-        compare(*valid_input)
-        answer = input('Do you want play again? ').lower()
-        if answer != 'y' and answer != 'yes':
-            print('Thank you!')
-            play = False
-
-
 def compare(f_height, f_width, s_height, s_width):
     f_area = f_height * f_width
     f_diagonal = f_height**2 + f_width**2
@@ -29,37 +17,49 @@ def compare(f_height, f_width, s_height, s_width):
     
     if (f_area >= s_area) and (f_diagonal >= s_diagonal) and \
         (f_perimeter >= s_perimeter) and (f_short_side >= s_short_side):
-        print('Second can be placed in first')
+        return 'Second can be placed in first'
         
     elif (f_area <= s_area) and (f_diagonal <= s_diagonal) and \
         (f_perimeter <= s_perimeter) and (f_short_side <= s_short_side):
-        print('First can be placed in second')
+        return 'First can be placed in second'
         
     else:
-        print('Cannot be placed')
+        return 'Cannot be placed'
         
-def validator():
-    need_validation = True
+def validator(check_list):
+    if not all(check_list):
+        print('Invalid values.\nTry again')
+        return
+    else:
+        for i, item in enumerate(check_list):
+            if not (check_list[i].isdigit() and int(check_list[i]) > 0):
+                print('Invalid values.\nTry again')
+                return
+            else:
+                check_list[i] = float(check_list[i])        
+    return check_list
+
+
+def main():
     print('Usage: values must be positive integers ',
           'or positive floating-point numbers')    
-    while need_validation:
+    play = True
+    while play:
         f_height = input('First envelope height: ')
         f_width = input('First envelope width: ')
         s_height = input('Second envelope height: ')
         s_width = input('Second envelope width: ')
         check_list = [f_height, f_width, s_height, s_width]
+
+        valid_input = validator(check_list)
+        if valid_input:
+            print(compare(*valid_input))
         
-        if not all(check_list):
-            print('Invalid values.\nTry again')
-        else:
-            for i, item in enumerate(check_list):
-                if not (check_list[i].isdigit() and int(check_list[i]) > 0):
-                    print('Invalid values.\nTry again')
-                    break
-                else:
-                    check_list[i] = float(check_list[i])
-                    need_validation = False               
-    return check_list
+        answer = input('Do you want play again? ').lower()
+        if answer != 'y' and answer != 'yes':
+            print('Thank you!')
+            play = False
+
     
 if __name__ == "__main__":
     main()
